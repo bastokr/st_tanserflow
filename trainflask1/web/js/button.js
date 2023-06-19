@@ -21,16 +21,17 @@ function sendAjax(event){
     const SENDDATA =JSON.stringify({"image":dataURL});
     console.log(SENDDATA);  
 
-    alert('test');
+ 
     $.ajax({
         type:'POST',
-        url:"http://localhost:5000/test",
+        url:"http://localhost:5000/predict",
         dataType:'json', 
         contentType: "application/json; charset=utf-8",
         data:SENDDATA,
         success:function(responce){
     
                                  console.log(responce);
+                                 $("#answer").text(responce["result"])
                     },
                         error: function (response) {
                         // alert the error if any error occured
